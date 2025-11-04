@@ -12,6 +12,10 @@
 
   width: 440px;
 
+  -webkit-box-shadow: 0px 0px 18px 20px rgba(255, 255, 255, 0.8);
+  -moz-box-shadow: 0px 0px 18px 20px rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 0px 18px 20px rgba(255, 255, 255, 0.8);
+
   >h1 {
     font-size: 24px;
     font-weight: 500;
@@ -39,15 +43,16 @@
 
     >input {
         all: unset;
-        padding: 5px;
-        margin-top: 6px;
-
-        width: calc(100% - 10px);
-
-        background-color: rgba(213, 215, 218);
 
         border: 1px solid #D5D7DA0D;
-        border-radius: 8px;
+        border-radius: 10px;
+        padding: 8px 12px;
+
+        margin-top: 6px;
+
+        background-color: #D5D7DA0D;
+
+        width: calc(100% - 24px);
     }
   }
 

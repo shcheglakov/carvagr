@@ -24,17 +24,7 @@ export const FormBlock = () => {
             <div className={styles.formblock_form_container}>
                 <div className={styles.cars_animation_container_seamless}>
                     <div className={styles.carouselSeamless}>
-                        {/* Основной набор */}
-                        <img src={Bmw} alt="Bmw" className={styles.carImageSeamless} />
-                        <img src={Tesla} alt="Tesla" className={styles.carImageSeamless} />
-                        <img src={Cx5} alt="Cx5" className={styles.carImageSeamless} />
-                        <img src={Elantra} alt="Elantra" className={styles.carImageSeamless} />
-                        <img src={Li7} alt="Li7" className={styles.carImageSeamless} />
-                        <img src={Range} alt="Cx5" className={styles.carImageSeamless} />
-                        <img src={Civic} alt="Elantra" className={styles.carImageSeamless} />
-                        <img src={Mers} alt="Li7" className={styles.carImageSeamless} />
                         
-                        {/* Дублированный набор */}
                         <img src={Bmw} alt="Bmw" className={styles.carImageSeamless} />
                         <img src={Tesla} alt="Tesla" className={styles.carImageSeamless} />
                         <img src={Cx5} alt="Cx5" className={styles.carImageSeamless} />
@@ -42,7 +32,17 @@ export const FormBlock = () => {
                         <img src={Li7} alt="Li7" className={styles.carImageSeamless} />
                         <img src={Range} alt="Cx5" className={styles.carImageSeamless} />
                         <img src={Civic} alt="Elantra" className={styles.carImageSeamless} />
-                        <img src={Mers} alt="Li7" className={styles.carImageSeamless} />
+                        <img src={Mers} alt="Mers" className={styles.carImageSeamless} />
+                        
+                        
+                        <img src={Bmw} alt="Bmw" className={styles.carImageSeamless} />
+                        <img src={Tesla} alt="Tesla" className={styles.carImageSeamless} />
+                        <img src={Cx5} alt="Cx5" className={styles.carImageSeamless} />
+                        <img src={Elantra} alt="Elantra" className={styles.carImageSeamless} />
+                        <img src={Li7} alt="Li7" className={styles.carImageSeamless} />
+                        <img src={Range} alt="Cx5" className={styles.carImageSeamless} />
+                        <img src={Civic} alt="Elantra" className={styles.carImageSeamless} />
+                        <img src={Mers} alt="Mers" className={styles.carImageSeamless} />
                     </div>
                 </div>
 

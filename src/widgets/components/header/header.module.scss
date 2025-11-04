@@ -3,16 +3,16 @@ ul {
 }
 
 .header_container {
-    width: 100vw;
+    width: 99vw;
     border-bottom: 2px solid #D5D7DA;
     .header_ul_container {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        height: 105px;
+        height: 80px;
 
-        margin: 0px 240px 0px 240px;
+        gap: 250px;
 
         .header_logo_container {
             >img {
@@ -27,14 +27,15 @@ ul {
             gap: 32px;
 
             >li {
-                font-size: 18px;
+                font-size: 14px;
                 font-weight: 600;
+                cursor: pointer;
             }
         }
 
         .header_cons_button {
             >button {
-                font-size: 18px;
+                font-size: 14px;
                 font-weight: 500;
                 background-color: black;
                 color: white;
