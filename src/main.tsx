@@ -6,7 +6,7 @@ import { Main } from './pages/main/main.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/carvagr">
       <Main />
     </BrowserRouter>
   </StrictMode>,
