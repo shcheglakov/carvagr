@@ -1,5 +1,5 @@
 import styles from "./whatChecked.module.scss"
-import { forwardRef } from "react"
+import { forwardRef, useState } from "react"
 
 import Akpp from "../../../assets/icons/akpp.png"
 import Documents from "../../../assets/icons/documents.png"
@@ -8,6 +8,8 @@ import Glase from "../../../assets/icons/glase.png"
 import Comp from "../../../assets/icons/comp.png"
 import Cyzov from "../../../assets/icons/cyzov.png"
 import Podves from "../../../assets/icons/podves.png"
+import { ModalWindow } from "../../ui/modal_window/modal_window"
+import { AboutChecked } from "./about_checked/aboutChecked"
 
 interface WhatCheckedProps {
   // Убираем ref из пропсов
@@ -15,12 +17,23 @@ interface WhatCheckedProps {
 
 export const WhatChecked = forwardRef<HTMLDivElement, WhatCheckedProps>((props, ref) => {
     console.log(props)
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const selectModeWindow = () => {
+        setModalIsOpen(prev => !prev)
+    }
     return(
         <div className={styles.container} ref={ref}>
-            <button className={styles.discription_view}>
+            <button className={styles.discription_view} onClick={() => setModalIsOpen(!modalIsOpen)}>
                 Об осмотре
             </button>
             <h1>Что мы проверяем</h1>
+            {modalIsOpen ? 
+                <ModalWindow isOpen={modalIsOpen} onClose={selectModeWindow}>
+                    <AboutChecked />
+                </ModalWindow> 
+                : null
+            }
             <div className={styles.specifications_view}>
                 <div className={styles.specification_container}>
                     <div className={styles.specification_icon}>
