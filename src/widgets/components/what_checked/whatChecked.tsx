@@ -14,6 +14,7 @@ interface WhatCheckedProps {
 }
 
 export const WhatChecked = forwardRef<HTMLDivElement, WhatCheckedProps>((props, ref) => {
+    console.log(props)
     return(
         <div className={styles.container} ref={ref}>
             <button className={styles.discription_view}>

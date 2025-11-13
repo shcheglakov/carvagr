@@ -14,7 +14,8 @@ interface AboutUsProps {
 }
 
 export const AboutUs =  forwardRef<HTMLDivElement, AboutUsProps>((props, ref) => {
-    const carouselItems = [
+    console.log(props)
+  const carouselItems = [
     {
       id: 1,
       image: Tiguan,

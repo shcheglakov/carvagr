@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
 
-    margin-bottom: 90px;
+    height: calc(100vh - 80px);
 
     >h1 {
         font-size: 64px;
@@ -13,8 +13,6 @@
         letter-spacing: -4%;
 
         text-align: center;
-
-        margin-top: 60px;
     }
 
     >h2 {

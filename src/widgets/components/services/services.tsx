@@ -8,6 +8,7 @@ interface ServicesProps {
 }
 
 export const Services =  forwardRef<HTMLDivElement, ServicesProps>((props, ref) => {
+    console.log(props)
     return (
         <div className={styles.container} ref={ref}>
             <button className={styles.description_button}>Услуги</button>
