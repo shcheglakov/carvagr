@@ -1,10 +1,15 @@
+import { forwardRef } from "react"
 import { SelectionIcon } from "../../ui/icons/selection_icon"
 import { ViewIcon } from "../../ui/icons/view_icon"
 import styles from "./services.module.scss"
 
-export const Services = () => {
+interface ServicesProps {
+
+}
+
+export const Services =  forwardRef<HTMLDivElement, ServicesProps>((props, ref) => {
     return (
-        <div className={styles.container}>
+        <div className={styles.container} ref={ref}>
             <button className={styles.description_button}>Услуги</button>
             <div className={styles.title_container}>
                 <h1>Выполняем осмотр <br/>и подбираем авто</h1>
@@ -31,4 +36,4 @@ export const Services = () => {
             </div>
         </div>
     )
-}
+})

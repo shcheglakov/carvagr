@@ -3,7 +3,7 @@ import styles from "./footer.module.scss"
 
 export const Footer = () => {
     return (
-        <div className={styles.overflow}>
+        <footer className={styles.overflow}>
             <div className={styles.container}>
                 <LogoHeader color="#ffffff"/>
                 <div className={styles.info_container}>
@@ -25,6 +25,6 @@ export const Footer = () => {
                     <a href="">Mail</a>
                 </div>
             </div>
-        </div>
+        </footer>
     )
 }

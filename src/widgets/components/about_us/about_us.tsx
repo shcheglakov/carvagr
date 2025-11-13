@@ -6,9 +6,14 @@ import Cayenne from "../../../assets/carusel_images/Caeyen.jpg"
 import Octavia from "../../../assets/carusel_images/Octavia.jpg"
 import Tiguan from "../../../assets/carusel_images/Tiguan.jpg"
 import Carousel from "../carusel/carusel"
+import { forwardRef } from "react"
 // import X6 from "../../../assets/carusel_images/x6.jpg"
 
-export const AboutUs = () => {
+interface AboutUsProps {
+
+}
+
+export const AboutUs =  forwardRef<HTMLDivElement, AboutUsProps>((props, ref) => {
     const carouselItems = [
     {
       id: 1,
@@ -48,7 +53,7 @@ export const AboutUs = () => {
   ];
 
     return(
-        <div className={styles.overflow_container}>
+        <div className={styles.overflow_container} ref={ref}>
             <button className={styles.reviews_button}>Отзывы</button>
             <h1>Вот что говорят о нас<br/> наши клиенты</h1>
             <Carousel 
@@ -58,4 +63,4 @@ export const AboutUs = () => {
             />
         </div>
     )
-}
+})

@@ -1,4 +1,5 @@
 import styles from "./whatChecked.module.scss"
+import { forwardRef } from "react"
 
 import Akpp from "../../../assets/icons/akpp.png"
 import Documents from "../../../assets/icons/documents.png"
@@ -8,9 +9,13 @@ import Comp from "../../../assets/icons/comp.png"
 import Cyzov from "../../../assets/icons/cyzov.png"
 import Podves from "../../../assets/icons/podves.png"
 
-export const WhatChecked = () => {
+interface WhatCheckedProps {
+  // Убираем ref из пропсов
+}
+
+export const WhatChecked = forwardRef<HTMLDivElement, WhatCheckedProps>((props, ref) => {
     return(
-        <div className={styles.container}>
+        <div className={styles.container} ref={ref}>
             <button className={styles.discription_view}>
                 Об осмотре
             </button>
@@ -42,7 +47,7 @@ export const WhatChecked = () => {
                 </div>
                 <div className={styles.specification_container}>
                     <div className={styles.specification_icon}>
-                        <img src={Documents} alt="Akpp" />
+                        <img src={Documents} alt="Documents" /> {/* Исправлен alt */}
                     </div>
                     <h2>Документы</h2>
                 </div>
@@ -61,4 +66,4 @@ export const WhatChecked = () => {
             </div>
         </div>
     )
-}
+})
