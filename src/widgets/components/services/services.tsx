@@ -1,7 +1,9 @@
-import { forwardRef } from "react"
+import { forwardRef, useState } from "react"
 import { SelectionIcon } from "../../ui/icons/selection_icon"
 import { ViewIcon } from "../../ui/icons/view_icon"
 import styles from "./services.module.scss"
+import { ModalWindow } from "../../ui/modal_window/modal_window"
+import { AboutServices } from "./aboutServices/aboutServices"
 
 interface ServicesProps {
 
@@ -9,9 +11,21 @@ interface ServicesProps {
 
 export const Services =  forwardRef<HTMLDivElement, ServicesProps>((props, ref) => {
     console.log(props)
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    
+    const selectModeWindow = () => {
+        setModalIsOpen(prev => !prev)
+    }
+    
     return (
         <div className={styles.container} ref={ref}>
-            <button className={styles.description_button}>Услуги</button>
+            <button className={styles.description_button} onClick={() => setModalIsOpen(!modalIsOpen)}>Услуги</button>
+            {modalIsOpen ? 
+                <ModalWindow isOpen={modalIsOpen} onClose={selectModeWindow}>
+                    <AboutServices />
+                </ModalWindow> 
+                : null
+            }
             <div className={styles.title_container}>
                 <h1>Выполняем осмотр <br/>и подбираем авто</h1>
                 <h2>Услуга подбора включает в себя тщательный осмотр автомобилей, анализ их состояния и помощь в выборе подходящей модели, соответствующей вашим требованиям.</h2>

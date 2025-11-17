@@ -13,12 +13,14 @@ interface CarouselProps {
   items: CarouselItem[];
   autoPlay?: boolean;
   interval?: number;
+  link?: string;
 }
 
 const Carousel: React.FC<CarouselProps> = ({ 
   items, 
   autoPlay = false, 
-  interval = 3000 
+  interval = 3000,
+  link,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -71,6 +73,10 @@ const Carousel: React.FC<CarouselProps> = ({
     className: getSlideClass(offset)
   }));
 
+  const handleItem = () => {
+    window.open(link)
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -86,7 +92,7 @@ const Carousel: React.FC<CarouselProps> = ({
         {/* Слайды */}
         <div className={styles.slides}>
           {visibleSlides.map(({ offset, index, className }) => (
-            <div key={offset} className={className}>
+            <div key={offset} className={className} onClick={handleItem}>
               <div className={styles.imageContainer}>
                 <img 
                   src={items[index].image} 

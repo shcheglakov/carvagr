@@ -1,10 +1,143 @@
-.overlay {
+>ul {
+  >li {
+    list-style-type: disc;
+  }
+}
+
+.modal_root {
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.overlay {
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
-  z-index: 999;
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  background-color: #151515;
+  color: white;
+  border-radius: 8px;
+  
+  // Центрирование и базовые размеры
+  display: flex;
+  flex-direction: column;
+  
+  // Размеры с использованием CSS переменных
+  //width: min(440px, 90vw);
+  max-width: 90vw;
+  max-height: var(--max-height, 90vh);
+  min-height: 150px;
+  
+  // Тень
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 18px 20px rgba(255, 255, 255, 0.8);
+  
+  // Анимация появления
+  animation: modalAppear 0.2s ease-out;
+  
+  // Важно: чтобы контейнер не скроллился, скролл только у контента
+  overflow: hidden;
+}
+
+.content {
+  // Скролл для контента
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  // Прокрутка с инерцией для плавности на тач-устройствах
+  -webkit-overflow-scrolling: touch;
+  
+  // Размеры контента
+  flex: 1;
+  padding: 2rem;
+  
+  // Кастомный скроллбар для вебкит браузеров
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+.close_button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 3; // Чтобы кнопка была над скроллируемым контентом
+}
+
+// Анимация появления
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Для очень маленьких экранов
+@media (max-width: 480px) {
+  .container {
+    width: 95vw;
+    min-height: 120px;
+  }
+  
+  .content {
+    padding: 1.5rem;
+  }
+}
+
+// Для очень высокого контента - дополнительные стили
+.large_content {
+  .container {
+    max-height: 95vh;
+  }
+  
+  .content {
+    padding: 1.5rem 2rem;
+  }
 }

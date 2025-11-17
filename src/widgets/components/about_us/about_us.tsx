@@ -53,14 +53,19 @@ export const AboutUs =  forwardRef<HTMLDivElement, AboutUsProps>((props, ref) =>
     }
   ];
 
+  const handleOpenTg = () => {
+    window.open(`https://t.me/carvagrauto`)
+  }
+
     return(
         <div className={styles.overflow_container} ref={ref}>
-            <button className={styles.reviews_button}>Отзывы</button>
+            <button className={styles.reviews_button} onClick={handleOpenTg}>Отзывы</button>
             <h1>Вот что говорят о нас<br/> наши клиенты</h1>
             <Carousel 
                 items={carouselItems} 
                 autoPlay={true}
                 interval={5000}
+                link="https://t.me/carvagrauto"
             />
         </div>
     )
