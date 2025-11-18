@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .buttons_container {
+        border: 2px solid rgba(213, 215, 218, 0.1);
+        border-radius: 16px;
+        width: 440px;
+
+        display: flex;
+        justify-content: space-between;
+
+        >button {
+            width: 40%;
+            border-radius: 14px;
+            text-align: center;
+            font-size: 16px;
+        }
+    }
+}

@@ -2,6 +2,7 @@ import styles from "./header.module.scss"
 import { LogoHeader } from "../../ui/icons/logo_header"
 import { useState } from "react"
 import { Consultation } from "../consultation/consultation";
+import { LogoHead } from "../../ui/icons/logo_head";
 
 interface HeaderProps {
     scrollToWhatChecked: () => void; // Исправлено
@@ -20,6 +21,7 @@ export const Header = ({scrollToWhatChecked, scrollToServices, scrollToAboutUs} 
         <header>
             <nav className={styles.header_container}>
                 <ul className={styles.header_ul_container}>
+                    <LogoHead />
                     <li className={styles.header_logo_container}>
                         <LogoHeader color="#000000"/>
                     </li>
