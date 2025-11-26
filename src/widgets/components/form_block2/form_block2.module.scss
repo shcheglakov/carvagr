@@ -186,6 +186,10 @@
             .form {
                 .input_container {
                     width: 280px;
+
+                    >input {
+                        width: 100%;
+                    }
                 }
 
                 >button {
@@ -204,6 +208,7 @@
 
         .form_container {
             padding: 0 16px;
+            align-items: center;
 
             >h1 {
                 font-size: 24px;
@@ -222,11 +227,13 @@
                     >input {
                         padding: 14px 12px;
                         font-size: 16px; // Улучшает UX на iOS
+                        width: 100%;
                     }
                 }
 
                 >button {
-                    padding: 14px 24px;
+                    text-align: center;
+                    padding: 14px 0px;
                     font-size: 16px;
                     border-radius: 12px;
                 }
@@ -275,7 +282,7 @@
                 }
 
                 >button {
-                    padding: 12px 20px;
+                    padding: 12px 0px;
                     font-size: 14px;
                     border-radius: 10px;
                     font-weight: 600;

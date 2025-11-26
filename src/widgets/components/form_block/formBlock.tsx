@@ -8,137 +8,93 @@ import Range from "../../../../public/cars_animation/range.png"
 import Civic from "../../../../public/cars_animation/civic.png"
 import Mers from "../../../../public/cars_animation/mers.png"
 
-import { useState } from "react"
-
+import { useEffect, useState } from "react"
 export const FormBlock = () => {
     const [radioSelect, setRadioSelect] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
 
     const selecteRadioButton = (number: number) => {
         setRadioSelect(number)
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // Обработка отправки формы
-        console.log('Form submitted', { radioSelect });
-    }
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+
+        return () => window.removeEventListener('resize', checkMobile);
+    },[])
 
     return(
         <div className={styles.formblock_container}>
-            <div className={styles.hero_content}>
-                <div className={styles.title_container}>
-                    <h1>Хотите осмотреть или купить б/у автомобиль?</h1>
-                    <div className={styles.highlight_line}></div>
-                </div>
-                <h2>Мы подберем для вас оптимальное предложение на рынке с гарантией технической и юридической чистоты</h2>
-            </div>
+            <h1>Хотите осмотреть или<br/>купить б/у автомобиль?</h1>
+            <h2>Мы подберем для вас оптимальное предложение на рынке<br/>с гарантией технической и юридической чистоты</h2>
             
             <div className={styles.formblock_form_container}>
-                {/* Слайдер виден только на десктопе */}
-                <div className={styles.cars_animation_container_seamless}>
-                    <div className={styles.carouselSeamless}>
-                        <img src={Bmw} alt="BMW" className={styles.carImageSeamless} loading="lazy" />
-                        <img src={Tesla} alt="Tesla" className={styles.carImageSeamless} loading="lazy" />
-                        <img src={Cx5} alt="Mazda CX-5" className={styles.carImageSeamless} loading="lazy" />
-                        <img src={Elantra} alt="Hyundai Elantra" className={styles.carImageSeamless} loading="lazy" />
-                        <img src={Li7} alt="Li7" className={styles.carImageSeamless} loading="lazy" />
-                        <img src={Range} alt="Range Rover" className={styles.carImageSeamless} loading="lazy" />
-                        <img src={Civic} alt="Honda Civic" className={styles.carImageSeamless} loading="lazy" />
-                        <img src={Mers} alt="Mercedes" className={styles.carImageSeamless} loading="lazy" />
-                        
-                        <img src={Bmw} alt="BMW" className={styles.carImageSeamless} loading="lazy" />
-                        <img src={Tesla} alt="Tesla" className={styles.carImageSeamless} loading="lazy" />
-                        <img src={Cx5} alt="Mazda CX-5" className={styles.carImageSeamless} loading="lazy" />
-                        <img src={Elantra} alt="Hyundai Elantra" className={styles.carImageSeamless} loading="lazy" />
-                        <img src={Li7} alt="Li7" className={styles.carImageSeamless} loading="lazy" />
-                        <img src={Range} alt="Range Rover" className={styles.carImageSeamless} loading="lazy" />
-                        <img src={Civic} alt="Honda Civic" className={styles.carImageSeamless} loading="lazy" />
-                        <img src={Mers} alt="Mercedes" className={styles.carImageSeamless} loading="lazy" />
+                {isMobile ? null : 
+                    <div className={styles.cars_animation_container_seamless}>
+                        <div className={styles.carouselSeamless}>
+                            
+                            <img src={Bmw} alt="Bmw" className={styles.carImageSeamless} />
+                            <img src={Tesla} alt="Tesla" className={styles.carImageSeamless} />
+                            <img src={Cx5} alt="Cx5" className={styles.carImageSeamless} />
+                            <img src={Elantra} alt="Elantra" className={styles.carImageSeamless} />
+                            <img src={Li7} alt="Li7" className={styles.carImageSeamless} />
+                            <img src={Range} alt="Cx5" className={styles.carImageSeamless} />
+                            <img src={Civic} alt="Elantra" className={styles.carImageSeamless} />
+                            <img src={Mers} alt="Mers" className={styles.carImageSeamless} />
+                            
+                            
+                            <img src={Bmw} alt="Bmw" className={styles.carImageSeamless} />
+                            <img src={Tesla} alt="Tesla" className={styles.carImageSeamless} />
+                            <img src={Cx5} alt="Cx5" className={styles.carImageSeamless} />
+                            <img src={Elantra} alt="Elantra" className={styles.carImageSeamless} />
+                            <img src={Li7} alt="Li7" className={styles.carImageSeamless} />
+                            <img src={Range} alt="Cx5" className={styles.carImageSeamless} />
+                            <img src={Civic} alt="Elantra" className={styles.carImageSeamless} />
+                            <img src={Mers} alt="Mers" className={styles.carImageSeamless} />
+                        </div>
                     </div>
-                </div>
+                }
 
-                <div className={styles.form_header}>
-                    <div className={styles.form_icon}>🚗</div>
-                    <h1>Оставь заявку, чтобы сохранить свою выгоду!</h1>
-                </div>
-                
+                <h1>Оставь заявку, чтобы сохранить<br/>свою выгоду!</h1>
                 <div className={styles.formblock_form_container__radio_container}>
                    <button 
                         onClick={() => selecteRadioButton(0)}
-                        className={`${styles.radio_button} ${
-                            radioSelect === 0 ? styles.radio_active : ''
-                        }`}
+                        style={{ 
+                            backgroundColor: radioSelect === 0 ? '#D5D7DA1A' : '#151515' 
+                        }}
+                        className={radioSelect === 0 ? styles.active : styles.inactive}
                     >
-                        <span className={styles.radio_icon}>🔍</span>
                         Осмотр
                     </button> 
                     <button 
                         onClick={() => selecteRadioButton(1)}
-                        className={`${styles.radio_button} ${
-                            radioSelect === 1 ? styles.radio_active : ''
-                        }`}
+                        style={{ 
+                            backgroundColor: radioSelect === 1 ? '#D5D7DA1A' : '#151515' 
+                        }}
+                        className={radioSelect === 1 ? styles.active : styles.inactive}
                     >
-                        <span className={styles.radio_icon}>🎯</span>
                         Подбор
                     </button>
                 </div>
-                
-                <form onSubmit={handleSubmit} className={styles.formblock_form__form}>
+                <form action="" className={styles.formblock_form__form}>
                     <div className={`${styles.formblock_form__form_input_container} ${styles.formblock_form__form_input_container_1}`}>
-                        <div className={styles.input_label}>
-                            <span className={styles.label_icon}>🚙</span>
-                            <p>Марка и модель</p>
-                        </div>
-                        <input 
-                            type="text" 
-                            placeholder="Например: Hyundai Solaris 2017" 
-                            name="marka" 
-                            className={styles.formblock_form__form_input}
-                            required
-                        />
+                        <p>Марка и модель</p>
+                        <input type="text" placeholder="Hyundai Solaris 2017" name="marka" className={styles.formblock_form__form_input}/>
                     </div>
-                    
-                    <div className={styles.input_row}>
-                        <div className={`${styles.formblock_form__form_input_container} ${styles.formblock_form__form_input_container_2}`}>
-                            <div className={styles.input_label}>
-                                <span className={styles.label_icon}>👤</span>
-                                <p>Ваше имя</p>
-                            </div>
-                            <input 
-                                type="text" 
-                                placeholder="Иван Иванов" 
-                                name="fio" 
-                                className={styles.formblock_form__form_input}
-                                required
-                            />
-                        </div>
-                        
-                        <div className={`${styles.formblock_form__form_input_container} ${styles.formblock_form__form_input_container_3}`}>
-                            <div className={styles.input_label}>
-                                <span className={styles.label_icon}>📱</span>
-                                <p>Телефон</p>
-                            </div>
-                            <input 
-                                type="tel" 
-                                placeholder="+7 (___) ___-__-__" 
-                                name="number" 
-                                className={styles.formblock_form__form_input}
-                                required
-                            />
-                        </div>
+                    <div className={`${styles.formblock_form__form_input_container} ${styles.formblock_form__form_input_container_2}`}>
+                        <p>Как вас зовут?</p>
+                        <input type="text" placeholder="Иван Иванов" name="fio" className={styles.formblock_form__form_input}/>
                     </div>
-                    
-                    <button 
-                        type="submit" 
-                        className={styles.submit_button}
-                    >
-                        <span className={styles.button_icon}>💬</span>
-                        Получить консультацию
-                    </button>
-                    
-                    <div className={styles.form_footer}>
-                        <p>📞 Мы перезвоним в течение 15 минут</p>
+                    <div className={`${styles.formblock_form__form_input_container} ${styles.formblock_form__form_input_container_3}`}>
+                        <p>Номер телефона</p>
+                        <input type="text" placeholder="+7" name="number" className={styles.formblock_form__form_input}/>
                     </div>
+                    <button type="submit" className={styles.formblock_form__form_input_container_4}>Проконсультироваться</button>
                 </form>
             </div>
         </div>
