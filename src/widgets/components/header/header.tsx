@@ -2,7 +2,6 @@ import styles from "./header.module.scss"
 import { LogoHeader } from "../../ui/icons/logo_header"
 import { useState } from "react"
 import { Consultation } from "../consultation/consultation";
-import { LogoHead } from "../../ui/icons/logo_head";
 
 interface HeaderProps {
     scrollToWhatChecked: () => void; // Исправлено

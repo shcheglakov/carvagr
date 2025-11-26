@@ -3,6 +3,8 @@
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 
 .wrapper {
@@ -174,10 +176,49 @@
   }
 }
 
-// Адаптивность
+// Большие экраны (1441px и выше)
+@media (min-width: 1441px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  .wrapper {
+    height: 500px;
+  }
+
+  .slide {
+    &.center {
+      width: 28%;
+    }
+
+    &.left,
+    &.right {
+      width: 20%;
+    }
+
+    &.farLeft,
+    &.farRight {
+      width: 16%;
+    }
+  }
+}
+
+// Ноутбуки (1025px - 1440px)
+@media (max-width: 1440px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+// Планшеты в ландшафтной ориентации (1024px - 769px)
 @media (max-width: 1024px) {
   .container {
     max-width: 1000px;
+    padding: 0 20px;
+  }
+
+  .wrapper {
+    height: 420px;
   }
 
   .slide {
@@ -188,45 +229,36 @@
     &.left,
     &.right {
       width: 25%;
+      height: 70%;
     }
 
     &.farLeft,
     &.farRight {
       width: 20%;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .wrapper {
-    height: 400px;
-  }
-
-  .slide {
-    &.center {
-      width: 40%;
-      height: 80%;
-    }
-
-    &.left,
-    &.right {
-      width: 28%;
-      height: 70%;
-      transform: translateX(+-110%) scale(0.9);
-    }
-
-    &.farLeft,
-    &.farRight {
-      width: 22%;
       height: 60%;
-      transform: translateX(+-200%) scale(0.8);
+    }
+
+    &.left {
+      transform: translateX(-115%) scale(0.9);
+    }
+
+    &.right {
+      transform: translateX(115%) scale(0.9);
+    }
+
+    &.farLeft {
+      transform: translateX(-200%) scale(0.8);
+    }
+
+    &.farRight {
+      transform: translateX(200%) scale(0.8);
     }
   }
 
   .button {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
 
     &.prev {
       left: 15px;
@@ -234,6 +266,52 @@
 
     &.next {
       right: 15px;
+    }
+  }
+}
+
+// Планшеты в портретной ориентации (768px - 577px)
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .wrapper {
+    height: 380px;
+  }
+
+  .slide {
+    &.center {
+      width: 45%;
+      height: 85%;
+    }
+
+    &.left,
+    &.right {
+      width: 30%;
+      height: 65%;
+      transform: translateX(+-110%) scale(0.85);
+    }
+
+    &.farLeft,
+    &.farRight {
+      width: 25%;
+      height: 55%;
+      transform: translateX(+-185%) scale(0.75);
+    }
+  }
+
+  .button {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+
+    &.prev {
+      left: 10px;
+    }
+
+    &.next {
+      right: 10px;
     }
   }
 
@@ -248,50 +326,43 @@
   .avtor {
     font-size: 0.8rem;
   }
+
+  .center {
+    .content {
+      .description {
+        font-size: 0.8rem;
+      }
+    }
+  }
 }
 
-@media (max-width: 480px) {
+// Мобильные устройства (576px - 481px)
+@media (max-width: 576px) {
   .wrapper {
-    height: 350px;
+    height: 320px;
   }
 
   .slide {
     &.center {
-      width: 45%;
-      height: 75%;
+      width: 55%;
+      height: 80%;
     }
 
     &.left,
     &.right {
-      width: 30%;
-      height: 65%;
-      transform: translateX(+-100%) scale(0.85);
+      width: 35%;
+      height: 60%;
+      transform: translateX(+-100%) scale(0.8);
     }
 
     &.farLeft,
     &.farRight {
-      width: 25%;
-      height: 55%;
-      transform: translateX(+-180%) scale(0.75);
-    }
-  }
-
-  .button {
-    width: 35px;
-    height: 35px;
-    font-size: 16px;
-
-    &.prev {
-      left: 10px;
-    }
-
-    &.next {
-      right: 10px;
+      display: none; // Скрываем дальние слайды на маленьких экранах
     }
   }
 
   .imageContainer {
-    height: 55%;
+    height: 50%;
   }
 
   .content {
@@ -314,5 +385,151 @@
         margin-top: 6px;
       }
     }
+  }
+}
+
+// Маленькие мобильные устройства (480px и меньше)
+@media (max-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .wrapper {
+    height: 280px;
+  }
+
+  .slide {
+    &.center {
+      width: 65%;
+      height: 75%;
+    }
+
+    &.left,
+    &.right {
+      width: 40%;
+      height: 55%;
+      transform: translateX(+-90%) scale(0.75);
+    }
+  }
+
+  .button {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+
+    &.prev {
+      left: 5px;
+    }
+
+    &.next {
+      right: 5px;
+    }
+  }
+
+  .imageContainer {
+    height: 45%;
+  }
+
+  .content {
+    padding: 8px;
+  }
+
+  .auto {
+    font-size: 0.85rem;
+  }
+
+  .avtor {
+    font-size: 0.7rem;
+  }
+
+  .center {
+    .content {
+      .description {
+        font-size: 0.7rem;
+        margin-top: 4px;
+        line-height: 1.2;
+      }
+    }
+  }
+}
+
+// Очень маленькие устройства (320px и меньше)
+@media (max-width: 320px) {
+  .wrapper {
+    height: 250px;
+  }
+
+  .slide {
+    &.center {
+      width: 75%;
+      height: 70%;
+    }
+
+    &.left,
+    &.right {
+      width: 45%;
+      height: 50%;
+      transform: translateX(+-80%) scale(0.7);
+    }
+  }
+
+  .button {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .content {
+    padding: 6px;
+  }
+
+  .auto {
+    font-size: 0.8rem;
+  }
+
+  .avtor {
+    font-size: 0.65rem;
+  }
+
+  .center {
+    .content {
+      .description {
+        font-size: 0.65rem;
+      }
+    }
+  }
+}
+
+// Ландшафтная ориентация для мобильных устройств
+@media (max-height: 500px) and (orientation: landscape) {
+  .wrapper {
+    height: 300px;
+  }
+
+  .slide {
+    &.center {
+      height: 90%;
+    }
+
+    &.left,
+    &.right {
+      height: 70%;
+    }
+
+    &.farLeft,
+    &.farRight {
+      height: 60%;
+    }
+  }
+
+  .imageContainer {
+    height: 50%;
+  }
+}
+
+// Высокие экраны
+@media (min-height: 800px) and (min-width: 1024px) {
+  .wrapper {
+    height: 500px;
   }
 }
