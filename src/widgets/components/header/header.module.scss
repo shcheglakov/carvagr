@@ -4,6 +4,7 @@ ul {
 
 .header_container {
     border-bottom: 2px solid #D5D7DA;
+    position: relative;
     
     .header_ul_container {
         display: flex;
@@ -13,15 +14,42 @@ ul {
         height: 80px;
         padding: 0 20px;
         gap: 20px;
+        position: relative;
+
+        .header_mobile_left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+
+        .burger_menu {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            
+            span {
+                display: block;
+                height: 2px;
+                width: 100%;
+                background-color: #000;
+                transition: all 0.3s ease;
+                transform-origin: center;
+            }
+        }
 
         .header_logo_container {
             flex-shrink: 0;
             
-            >img {
-                height: 100%;
+            svg {
+                height: 40px;
                 width: auto;
-                max-height: 60px;
-                object-fit: contain;
             }
         }
 
@@ -29,12 +57,19 @@ ul {
             display: flex;
             flex-direction: row;
             gap: 20px;
+            align-items: center;
 
             >li {
                 font-size: 14px;
                 font-weight: 600;
                 cursor: pointer;
                 white-space: nowrap;
+                transition: color 0.3s ease;
+                list-style: none;
+
+                &:hover {
+                    color: #666;
+                }
             }
         }
 
@@ -50,12 +85,24 @@ ul {
                 padding: 10px 20px;
                 border: none;
                 cursor: pointer;
-                transition: opacity 0.3s ease;
+                transition: all 0.3s ease;
 
                 &:hover {
                     opacity: 0.8;
+                    transform: translateY(-1px);
                 }
             }
+        }
+
+        .mobile_overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 98;
         }
     }
 }
@@ -67,18 +114,61 @@ ul {
             height: 60px;
             padding: 0 16px;
             gap: 15px;
+            justify-content: space-between;
+
+            .header_mobile_left {
+                gap: 12px;
+            }
+
+            .burger_menu {
+                display: flex;
+            }
 
             .header_logo_container {
-                >img {
-                    max-height: 40px;
-                }
+                svg {
+                    height: 35px;
+                width: auto;
+                max-height: 35px;
+                object-fit: contain;
+                display: block;
+                margin: 0 auto;
+                max-width: 100%;
+                height: auto;
+            }
             }
 
             .header_nav_container {
-                gap: 12px;
-                
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding: 80px 30px 30px;
+                gap: 25px;
+                z-index: 99;
+                transition: left 0.3s ease;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+
+                &.nav_open {
+                    left: 0;
+                }
+
                 >li {
-                    font-size: 12px;
+                    font-size: 18px;
+                    font-weight: 600;
+                    padding: 10px 0;
+                    width: 100%;
+                    border-bottom: 1px solid #f0f0f0;
+                    transition: all 0.3s ease;
+
+                    &:active {
+                        background-color: #f8f8f8;
+                    }
                 }
             }
 
@@ -87,7 +177,12 @@ ul {
                     font-size: 12px;
                     padding: 8px 16px;
                     border-radius: 12px;
+                    white-space: nowrap;
                 }
+            }
+
+            .mobile_overlay {
+                display: block;
             }
         }
     }
@@ -163,17 +258,33 @@ ul {
             padding: 0 12px;
             gap: 10px;
 
+            .header_mobile_left {
+                gap: 10px;
+            }
+
+            .burger_menu {
+                width: 20px;
+                height: 16px;
+            }
+
             .header_logo_container {
-                >img {
-                    max-height: 30px;
+                svg {
+                    height: 30px;
+                max-height: 30px;
+                width: auto;
+                    max-width: 120px;
                 }
             }
 
             .header_nav_container {
-                gap: 8px;
-                
+                width: 85%;
+                max-width: 280px;
+                padding: 70px 20px 20px;
+                gap: 20px;
+
                 >li {
-                    font-size: 11px;
+                    font-size: 16px;
+                    padding: 8px 0;
                 }
             }
 
@@ -188,18 +299,40 @@ ul {
     }
 }
 
-// Скрытие навигации на очень маленьких экранах (опционально)
-@media (max-width: 360px) {
+// Анимация бургер-меню при открытии
+@media (max-width: 768px) {
+    .header_container {
+        .header_ul_container {
+            .burger_menu {
+                &.menu_open {
+                    span:nth-child(1) {
+                        transform: rotate(45deg) translate(6px, 6px);
+                    }
+                    
+                    span:nth-child(2) {
+                        opacity: 0;
+                    }
+                    
+                    span:nth-child(3) {
+                        transform: rotate(-45deg) translate(6px, -6px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Ландшафтная ориентация для мобильных
+@media (max-width: 768px) and (orientation: landscape) {
     .header_container {
         .header_ul_container {
             .header_nav_container {
-                display: none; // Можно заменить на бургер-меню
-            }
-            
-            .header_cons_button {
-                >button {
-                    padding: 5px 10px;
-                    font-size: 10px;
+                padding-top: 60px;
+                gap: 15px;
+                
+                >li {
+                    font-size: 16px;
+                    padding: 6px 0;
                 }
             }
         }
