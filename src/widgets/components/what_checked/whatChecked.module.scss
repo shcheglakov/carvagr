@@ -54,7 +54,7 @@
                 }
             }
 
-            >h1 {
+            >h2 {
                 font-size: 16px;
                 font-weight: 600;
                 letter-spacing: -2%;
@@ -96,7 +96,7 @@
                     margin-bottom: 10px;
                 }
 
-                >h1 {
+                >h2 {
                     font-size: 14px;
                     letter-spacing: -1%;
                 }
@@ -126,7 +126,7 @@
                     height: 90px;
                 }
 
-                >h1 {
+                >h2 {
                     font-size: 17px;
                 }
             }
@@ -153,7 +153,7 @@
                     margin-bottom: 14px;
                 }
 
-                >h1 {
+                >h2 {
                     font-size: 18px;
                     letter-spacing: -3%;
                 }
@@ -208,7 +208,7 @@
         }
 
         .specifications_view {
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
 
             .specification_container {
@@ -218,7 +218,7 @@
                     margin-bottom: 8px;
                 }
 
-                >h1 {
+                >h2 {
                     font-size: 13px;
                 }
             }
