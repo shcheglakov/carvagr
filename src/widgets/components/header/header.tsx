@@ -21,7 +21,6 @@ export const Header = ({scrollToWhatChecked, scrollToServices, scrollToAboutUs} 
         <header>
             <nav className={styles.header_container}>
                 <ul className={styles.header_ul_container}>
-                    <LogoHead />
                     <li className={styles.header_logo_container}>
                         <LogoHeader color="#000000"/>
                     </li>

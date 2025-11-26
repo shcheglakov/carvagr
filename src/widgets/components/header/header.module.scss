@@ -3,43 +3,204 @@ ul {
 }
 
 .header_container {
-    width: 99vw;
     border-bottom: 2px solid #D5D7DA;
+    
     .header_ul_container {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         height: 80px;
-
-        gap: 250px;
+        padding: 0 20px;
+        gap: 20px;
 
         .header_logo_container {
+            flex-shrink: 0;
+            
             >img {
                 height: 100%;
-                width: 100%;
+                width: auto;
+                max-height: 60px;
+                object-fit: contain;
             }
         }
 
         .header_nav_container {
             display: flex;
             flex-direction: row;
-            gap: 32px;
+            gap: 20px;
 
             >li {
                 font-size: 14px;
                 font-weight: 600;
                 cursor: pointer;
+                white-space: nowrap;
             }
         }
 
         .header_cons_button {
+            flex-shrink: 0;
+            
             >button {
                 font-size: 14px;
                 font-weight: 500;
                 background-color: black;
                 color: white;
                 border-radius: 16px;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                transition: opacity 0.3s ease;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}
+
+// Мобильные устройства (до 768px)
+@media (max-width: 768px) {
+    .header_container {
+        .header_ul_container {
+            height: 60px;
+            padding: 0 16px;
+            gap: 15px;
+
+            .header_logo_container {
+                >img {
+                    max-height: 40px;
+                }
+            }
+
+            .header_nav_container {
+                gap: 12px;
+                
+                >li {
+                    font-size: 12px;
+                }
+            }
+
+            .header_cons_button {
+                >button {
+                    font-size: 12px;
+                    padding: 8px 16px;
+                    border-radius: 12px;
+                }
+            }
+        }
+    }
+}
+
+// Планшеты (769px - 1024px)
+@media (min-width: 769px) and (max-width: 1024px) {
+    .header_container {
+        .header_ul_container {
+            height: 70px;
+            padding: 0 24px;
+            gap: 40px;
+
+            .header_nav_container {
+                gap: 24px;
+            }
+
+            .header_cons_button {
+                >button {
+                    padding: 10px 18px;
+                }
+            }
+        }
+    }
+}
+
+// Десктоп (1025px - 1440px)
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .header_container {
+        .header_ul_container {
+            gap: 150px;
+            padding: 0 40px;
+
+            .header_nav_container {
+                gap: 28px;
+            }
+        }
+    }
+}
+
+// Большие экраны (1441px и выше)
+@media (min-width: 1441px) {
+    .header_container {
+        .header_ul_container {
+            gap: 250px;
+            padding: 0 60px;
+            max-width: 1920px;
+            margin: 0 auto;
+
+            .header_nav_container {
+                gap: 32px;
+                
+                >li {
+                    font-size: 16px;
+                }
+            }
+
+            .header_cons_button {
+                >button {
+                    font-size: 16px;
+                    padding: 12px 24px;
+                }
+            }
+        }
+    }
+}
+
+// Дополнительные улучшения для очень маленьких экранов
+@media (max-width: 480px) {
+    .header_container {
+        .header_ul_container {
+            height: 50px;
+            padding: 0 12px;
+            gap: 10px;
+
+            .header_logo_container {
+                >img {
+                    max-height: 30px;
+                }
+            }
+
+            .header_nav_container {
+                gap: 8px;
+                
+                >li {
+                    font-size: 11px;
+                }
+            }
+
+            .header_cons_button {
+                >button {
+                    font-size: 11px;
+                    padding: 6px 12px;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+}
+
+// Скрытие навигации на очень маленьких экранах (опционально)
+@media (max-width: 360px) {
+    .header_container {
+        .header_ul_container {
+            .header_nav_container {
+                display: none; // Можно заменить на бургер-меню
+            }
+            
+            .header_cons_button {
+                >button {
+                    padding: 5px 10px;
+                    font-size: 10px;
+                }
             }
         }
     }

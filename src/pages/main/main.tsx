@@ -8,6 +8,7 @@ import { Services } from "../../widgets/components/services/services"
 import { WhatChecked } from "../../widgets/components/what_checked/whatChecked"
 
 import styles from "./main.module.scss"
+import { WhyWe } from "../../widgets/components/why_we/whyWe"
 
 export const Main = () => {
   //const formBlockRef = useRef<HTMLDivElement>(null);
@@ -36,6 +37,7 @@ export const Main = () => {
         <FormBlock />
         <WhatChecked ref={whatCheckedRef}/>
         <Services ref={servicesRef}/>
+        <WhyWe />
         <AboutUs ref={aboutUsRef}/>
         <FormBlock2 />
       </main>
