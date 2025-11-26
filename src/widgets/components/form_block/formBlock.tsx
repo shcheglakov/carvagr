@@ -8,35 +8,14 @@ import Range from "../../../../public/cars_animation/range.png"
 import Civic from "../../../../public/cars_animation/civic.png"
 import Mers from "../../../../public/cars_animation/mers.png"
 
-import { useState, useRef, useEffect } from "react"
+import { useState } from "react"
 
 export const FormBlock = () => {
     const [radioSelect, setRadioSelect] = useState(0);
-    const [isMobile, setIsMobile] = useState(false);
-    const carouselRef = useRef<HTMLDivElement>(null);
 
     const selecteRadioButton = (number: number) => {
         setRadioSelect(number)
     }
-
-    // Определяем мобильное устройство
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
-
-    // Оптимизация анимации для мобильных устройств
-    useEffect(() => {
-        if (carouselRef.current && isMobile) {
-            carouselRef.current.style.animationDuration = '45s';
-        }
-    }, [isMobile]);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -46,16 +25,18 @@ export const FormBlock = () => {
 
     return(
         <div className={styles.formblock_container}>
-            <h1>Хотите осмотреть или<br/>купить б/у автомобиль?</h1>
-            <h2>Мы подберем для вас оптимальное предложение на рынке<br/>с гарантией технической и юридической чистоты</h2>
+            <div className={styles.hero_content}>
+                <div className={styles.title_container}>
+                    <h1>Хотите осмотреть или купить б/у автомобиль?</h1>
+                    <div className={styles.highlight_line}></div>
+                </div>
+                <h2>Мы подберем для вас оптимальное предложение на рынке с гарантией технической и юридической чистоты</h2>
+            </div>
             
             <div className={styles.formblock_form_container}>
+                {/* Слайдер виден только на десктопе */}
                 <div className={styles.cars_animation_container_seamless}>
-                    <div 
-                        className={styles.carouselSeamless}
-                        ref={carouselRef}
-                    >
-                        {/* Первый набор машин */}
+                    <div className={styles.carouselSeamless}>
                         <img src={Bmw} alt="BMW" className={styles.carImageSeamless} loading="lazy" />
                         <img src={Tesla} alt="Tesla" className={styles.carImageSeamless} loading="lazy" />
                         <img src={Cx5} alt="Mazda CX-5" className={styles.carImageSeamless} loading="lazy" />
@@ -65,7 +46,6 @@ export const FormBlock = () => {
                         <img src={Civic} alt="Honda Civic" className={styles.carImageSeamless} loading="lazy" />
                         <img src={Mers} alt="Mercedes" className={styles.carImageSeamless} loading="lazy" />
                         
-                        {/* Дубликат для бесшовной анимации */}
                         <img src={Bmw} alt="BMW" className={styles.carImageSeamless} loading="lazy" />
                         <img src={Tesla} alt="Tesla" className={styles.carImageSeamless} loading="lazy" />
                         <img src={Cx5} alt="Mazda CX-5" className={styles.carImageSeamless} loading="lazy" />
@@ -77,65 +57,88 @@ export const FormBlock = () => {
                     </div>
                 </div>
 
-                <h1>Оставь заявку, чтобы сохранить<br/>свою выгоду!</h1>
+                <div className={styles.form_header}>
+                    <div className={styles.form_icon}>🚗</div>
+                    <h1>Оставь заявку, чтобы сохранить свою выгоду!</h1>
+                </div>
                 
                 <div className={styles.formblock_form_container__radio_container}>
                    <button 
                         onClick={() => selecteRadioButton(0)}
                         className={`${styles.radio_button} ${
-                            radioSelect === 0 ? styles.radio_active : styles.radio_inactive
+                            radioSelect === 0 ? styles.radio_active : ''
                         }`}
                     >
+                        <span className={styles.radio_icon}>🔍</span>
                         Осмотр
                     </button> 
                     <button 
                         onClick={() => selecteRadioButton(1)}
                         className={`${styles.radio_button} ${
-                            radioSelect === 1 ? styles.radio_active : styles.radio_inactive
+                            radioSelect === 1 ? styles.radio_active : ''
                         }`}
                     >
+                        <span className={styles.radio_icon}>🎯</span>
                         Подбор
                     </button>
                 </div>
                 
                 <form onSubmit={handleSubmit} className={styles.formblock_form__form}>
                     <div className={`${styles.formblock_form__form_input_container} ${styles.formblock_form__form_input_container_1}`}>
-                        <p>Марка и модель</p>
+                        <div className={styles.input_label}>
+                            <span className={styles.label_icon}>🚙</span>
+                            <p>Марка и модель</p>
+                        </div>
                         <input 
                             type="text" 
-                            placeholder="Hyundai Solaris 2017" 
+                            placeholder="Например: Hyundai Solaris 2017" 
                             name="marka" 
                             className={styles.formblock_form__form_input}
                             required
                         />
                     </div>
-                    <div className={`${styles.formblock_form__form_input_container} ${styles.formblock_form__form_input_container_2}`}>
-                        <p>Как вас зовут?</p>
-                        <input 
-                            type="text" 
-                            placeholder="Иван Иванов" 
-                            name="fio" 
-                            className={styles.formblock_form__form_input}
-                            required
-                        />
+                    
+                    <div className={styles.input_row}>
+                        <div className={`${styles.formblock_form__form_input_container} ${styles.formblock_form__form_input_container_2}`}>
+                            <div className={styles.input_label}>
+                                <span className={styles.label_icon}>👤</span>
+                                <p>Ваше имя</p>
+                            </div>
+                            <input 
+                                type="text" 
+                                placeholder="Иван Иванов" 
+                                name="fio" 
+                                className={styles.formblock_form__form_input}
+                                required
+                            />
+                        </div>
+                        
+                        <div className={`${styles.formblock_form__form_input_container} ${styles.formblock_form__form_input_container_3}`}>
+                            <div className={styles.input_label}>
+                                <span className={styles.label_icon}>📱</span>
+                                <p>Телефон</p>
+                            </div>
+                            <input 
+                                type="tel" 
+                                placeholder="+7 (___) ___-__-__" 
+                                name="number" 
+                                className={styles.formblock_form__form_input}
+                                required
+                            />
+                        </div>
                     </div>
-                    <div className={`${styles.formblock_form__form_input_container} ${styles.formblock_form__form_input_container_3}`}>
-                        <p>Номер телефона</p>
-                        <input 
-                            type="tel" 
-                            placeholder="+7" 
-                            name="number" 
-                            className={styles.formblock_form__form_input}
-                            required
-                            pattern="\+7[0-9]{10}"
-                        />
-                    </div>
+                    
                     <button 
                         type="submit" 
-                        className={styles.formblock_form__form_input_container_4}
+                        className={styles.submit_button}
                     >
-                        Проконсультироваться
+                        <span className={styles.button_icon}>💬</span>
+                        Получить консультацию
                     </button>
+                    
+                    <div className={styles.form_footer}>
+                        <p>📞 Мы перезвоним в течение 15 минут</p>
+                    </div>
                 </form>
             </div>
         </div>
