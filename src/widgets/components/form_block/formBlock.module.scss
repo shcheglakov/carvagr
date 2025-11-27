@@ -213,7 +213,7 @@
                     }
 
                     .formblock_form__form_input {
-                        padding: 10px;
+                        padding: 5px;
                         border-radius: 6px;
                     }
                 }
@@ -425,15 +425,22 @@
         }
 
         .formblock_form_container {
-            padding: 16px 12px;
+            padding: 16px 16px;
             margin-top: 20px;
             gap: 12px;
+
+            .formblock_form__form_input_container {
+                >input {
+                    padding: 5px;
+                }
+            }
 
             .formblock_form_container__radio_container {
                 flex-direction: row;
                 gap: 8px;
                 
                 >button {
+                    border-radius: 10px;
                     width: 100%;
                     height: 100%;
                 }
