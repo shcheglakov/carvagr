@@ -8,25 +8,25 @@ import Range from "../../../../public/cars_animation/range.png"
 import Civic from "../../../../public/cars_animation/civic.png"
 import Mers from "../../../../public/cars_animation/mers.png"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 export const FormBlock = () => {
     const [radioSelect, setRadioSelect] = useState(0);
-    const [isMobile, setIsMobile] = useState(false);
+    // const [isMobile, setIsMobile] = useState(false);
 
     const selecteRadioButton = (number: number) => {
         setRadioSelect(number)
     }
 
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
+    // useEffect(() => {
+    //     const checkMobile = () => {
+    //         setIsMobile(window.innerWidth <= 768);
+    //     };
 
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
+    //     checkMobile();
+    //     window.addEventListener('resize', checkMobile);
 
-        return () => window.removeEventListener('resize', checkMobile);
-    },[])
+    //     return () => window.removeEventListener('resize', checkMobile);
+    // },[])
 
     return(
         <div className={styles.formblock_container}>
@@ -34,7 +34,7 @@ export const FormBlock = () => {
             <h2>Мы подберем для вас оптимальное предложение на рынке<br/>с гарантией технической и юридической чистоты</h2>
             
             <div className={styles.formblock_form_container}>
-                {isMobile ? null : 
+                {/* {isMobile ? null :  */}
                     <div className={styles.cars_animation_container_seamless}>
                         <div className={styles.carouselSeamless}>
                             
@@ -58,7 +58,7 @@ export const FormBlock = () => {
                             <img src={Mers} alt="Mers" className={styles.carImageSeamless} />
                         </div>
                     </div>
-                }
+                {/* } */}
 
                 <h1>Оставь заявку, чтобы сохранить<br/>свою выгоду!</h1>
                 <div className={styles.formblock_form_container__radio_container}>
