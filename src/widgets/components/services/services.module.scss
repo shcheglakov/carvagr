@@ -158,6 +158,10 @@
                 border-radius: 10px;
                 gap: 12px;
 
+                .icon_box {
+                    top: 15px;
+                }
+
                 >h3 {
                     font-size: 20px;
                 }
@@ -384,8 +388,8 @@
 
             .icon_box {
                 position: absolute;
-                right: 50px; 
-                bottom: 25px;
+                right: 20px;
+                top: 10px;
             }
         }
     }

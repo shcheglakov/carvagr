@@ -1,4 +1,4 @@
-import { forwardRef, useState } from "react"
+import { forwardRef, useEffect, useState } from "react"
 import { SelectionIcon } from "../../ui/icons/selection_icon"
 import { ViewIcon } from "../../ui/icons/view_icon"
 import styles from "./services.module.scss"
@@ -12,10 +12,22 @@ interface ServicesProps {
 export const Services =  forwardRef<HTMLDivElement, ServicesProps>((props, ref) => {
     console.log(props)
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     
     const selectModeWindow = () => {
         setModalIsOpen(prev => !prev)
     }
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+
+        return () => window.removeEventListener('resize', checkMobile);
+    }, [])
     
     return (
         <div className={styles.container} ref={ref}>
@@ -36,7 +48,12 @@ export const Services =  forwardRef<HTMLDivElement, ServicesProps>((props, ref) 
                     <h4>Наш автоэксперт становится вашими глазами и ушами. Он тщательно проверяет каждый узел автомобиля, тестирует его в движении и дает четкое заключение: «брать» или «бежать». Вы покупаете с полным пониманием реального состояния авто.</h4>
                     <h5>1999₽</h5>
                     <div className={styles.icon_box}>
-                        <ViewIcon color="#D5D7DA"/>
+                        {isMobile ? 
+                            <ViewIcon color="#D5D7DA" width="60" height="60"/>
+                        :
+                            <ViewIcon color="#D5D7DA" />
+                        }
+                        
                     </div>
                 </div>
 
@@ -45,7 +62,12 @@ export const Services =  forwardRef<HTMLDivElement, ServicesProps>((props, ref) 
                     <h4>На основе ваших пожеланий и бюджета мы проведем глубинную аналитику рынка, отсеем рисковые варианты и представим вам на выбор несколько лучших автомобилей. Вы получите готовый список проверенных предложений без лишней траты времени и нервов.</h4>
                     <h5>16999₽</h5>
                     <div className={styles.icon_box}>
-                        <SelectionIcon color="#282829"/>
+                        {isMobile ?
+                            <SelectionIcon color="#282829" width="75" height="75"/>
+                        :
+                            <SelectionIcon color="#282829"/>
+                        }
+                        
                     </div>
                 </div>
             </div>
