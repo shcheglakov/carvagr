@@ -7,9 +7,9 @@ import Tiguan from "../../../assets/carusel_images/Tiguan.jpg"
 import Carousel from "../carusel/carusel"
 import { forwardRef } from "react"
 
-interface AboutUsProps {}
+// interface AboutUsProps {}
 
-export const AboutUs =  forwardRef<HTMLDivElement, AboutUsProps>((props, ref) => {
+export const AboutUs = forwardRef<HTMLDivElement>((props, ref) => {
     console.log(props)
     
     const carouselItems = [

@@ -400,14 +400,14 @@
 
   .slide {
     &.center {
-      width: 65%;
-      height: 75%;
+      width: 55%;
+      height: 100%;
     }
 
     &.left,
     &.right {
       width: 40%;
-      height: 55%;
+      height: 75%;
       transform: translateX(+-90%) scale(0.75);
     }
   }
@@ -461,14 +461,14 @@
 
   .slide {
     &.center {
-      width: 75%;
-      height: 70%;
+      width: 55%;
+      height: 100%;
     }
 
     &.left,
     &.right {
-      width: 45%;
-      height: 50%;
+      width: 40%;
+      height: 75%;
       transform: translateX(+-80%) scale(0.7);
     }
   }
