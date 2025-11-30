@@ -1,23 +1,285 @@
 .container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    box-sizing: border-box;
+
     >h1 {
         text-align: center;
-
         font-size: 40px;
         font-weight: 500;
-
         letter-spacing: -4%;
         line-height: 55px;
+        margin: 0 0 60px 0;
+        color: #000000;
     }
 
     .items_container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        gap: 40px 60px;
 
         .item_container {
             display: flex;
             flex-direction: row;
-            .text_block {
+            align-items: flex-start;
+            gap: 24px;
+            padding: 20px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
 
+            &:hover {
+                background: rgba(0, 0, 0, 0.02);
+                transform: translateY(-2px);
+            }
+
+            .icon_block {
+                flex-shrink: 0;
+                width: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+                svg {
+                    max-width: 100%;
+                    height: auto;
+                }
+            }
+
+            .text_block {
+                flex: 1;
+                min-width: 0;
+
+                h2 {
+                    font-size: 20px;
+                    font-weight: 600;
+                    line-height: 130%;
+                    margin: 0 0 8px 0;
+                    color: #000000;
+                }
+
+                p {
+                    font-size: 16px;
+                    line-height: 150%;
+                    margin: 0;
+                    color: #666666;
+                }
+            }
+        }
+    }
+}
+
+// Большие экраны (1441px и выше)
+@media (min-width: 1441px) {
+    .container {
+        max-width: 1600px;
+        padding: 100px 40px;
+
+        >h1 {
+            font-size: 44px;
+            line-height: 60px;
+            margin-bottom: 70px;
+        }
+
+        .items_container {
+            gap: 50px 80px;
+
+            .item_container {
+                padding: 24px;
+
+                .text_block {
+                    h2 {
+                        font-size: 22px;
+                    }
+
+                    p {
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Десктоп (1025px - 1440px)
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .container {
+        padding: 70px 32px;
+
+        .items_container {
+            gap: 36px 50px;
+        }
+    }
+}
+
+// Планшеты (769px - 1024px)
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 60px 24px;
+
+        >h1 {
+            font-size: 36px;
+            line-height: 48px;
+            margin-bottom: 50px;
+        }
+
+        .items_container {
+            gap: 32px 40px;
+
+            .item_container {
+                gap: 20px;
+                padding: 16px;
+
+                .icon_block {
+                    width: 80px;
+                }
+
+                .text_block {
+                    h2 {
+                        font-size: 18px;
+                    }
+
+                    p {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Мобильные устройства (до 768px)
+@media (max-width: 768px) {
+    .container {
+        padding: 50px 16px;
+
+        >h1 {
+            font-size: 32px;
+            line-height: 42px;
+            margin-bottom: 40px;
+            letter-spacing: -2%;
+        }
+
+        .items_container {
+            grid-template-columns: 1fr;
+            gap: 24px;
+
+            .item_container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 16px;
+                padding: 20px;
+
+                .icon_block {
+                    width: 70px;
+                    margin-bottom: 8px;
+                }
+
+                .text_block {
+                    h2 {
+                        font-size: 18px;
+                        margin-bottom: 8px;
+                    }
+
+                    p {
+                        font-size: 15px;
+                        line-height: 140%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Очень маленькие экраны (до 480px)
+@media (max-width: 480px) {
+    .container {
+        padding: 40px 12px;
+
+        >h1 {
+            font-size: 28px;
+            line-height: 36px;
+            margin-bottom: 32px;
+        }
+
+        .items_container {
+            gap: 20px;
+
+            .item_container {
+                padding: 16px;
+                gap: 12px;
+
+                .icon_block {
+                    width: 60px;
+                }
+
+                .text_block {
+                    h2 {
+                        font-size: 17px;
+                    }
+
+                    p {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Ландшафтная ориентация для мобильных
+@media (max-width: 768px) and (orientation: landscape) {
+    .container {
+        padding: 30px 16px;
+
+        .items_container {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+
+            .item_container {
+                flex-direction: row;
+                text-align: left;
+                gap: 12px;
+                padding: 12px;
+
+                .icon_block {
+                    width: 50px;
+                    margin-bottom: 0;
+                }
+
+                .text_block {
+                    h2 {
+                        font-size: 16px;
+                    }
+
+                    p {
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Высокие экраны
+@media (min-height: 800px) and (max-width: 768px) {
+    .container {
+        padding: 60px 16px;
+    }
+}
+
+// Отключение анимаций при prefers-reduced-motion
+@media (prefers-reduced-motion: reduce) {
+    .container {
+        .items_container {
+            .item_container {
+                transition: none;
+                
+                &:hover {
+                    transform: none;
+                }
             }
         }
     }

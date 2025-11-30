@@ -1,10 +1,10 @@
 import type { IconProps } from "./types"
 
-export const AutoIcon = ({color}:IconProps) => {
+export const AutoIcon = ({color, width="25", height="11"}:IconProps) => {
     return (
         <svg 
-            width="25" 
-            height="11" 
+            width={width}
+            height={height}
             viewBox="0 0 25 11" 
             fill="none" 
             xmlns="http://www.w3.org/2000/svg"

@@ -1,10 +1,10 @@
 import type { IconProps } from "./types"
 
-export const ReportIcon = ({color}:IconProps) => {
+export const ReportIcon = ({color, width="14", height="20"}:IconProps) => {
     return (
         <svg 
-            width="14" 
-            height="20" 
+            width={width}
+            height={height}
             viewBox="0 0 14 20" 
             fill="none" 
             xmlns="http://www.w3.org/2000/svg"
