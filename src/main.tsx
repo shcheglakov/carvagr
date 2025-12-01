@@ -1,13 +1,19 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.scss'
-import { BrowserRouter } from 'react-router'
+import { BrowserRouter, Route, Routes } from 'react-router'
 import { Main } from './pages/main/main.tsx'
+import { Confidentiality } from './pages/confidentiality/confidentiality.tsx'
+import { PersonalData } from './pages/personalData/personalData.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter basename="/carvagr">
-      <Main />
+      <Routes>
+        <Route path='/' element={<Main />}/>
+        <Route path='/confidentiality' element={<Confidentiality />}/>
+        <Route path='/personaldata' element={<PersonalData />}/>
+      </Routes>
     </BrowserRouter>
   </StrictMode>,
 )

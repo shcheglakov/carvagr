@@ -5,8 +5,11 @@ import { ModalWindow } from "../../ui/modal_window/modal_window"
 import { ViewCar } from "../services/view_car/view_car"
 import { SelectionCar } from "../services/selection_car/selection_car"
 import { ContactInfo } from "../contactInfo/contactInfo"
+import { useNavigate } from "react-router"
 
 export const Footer = () => {
+    const navigation = useNavigate();
+
     const [isOpenSelectedWin, setIsOpenSelectedWin] = useState(false)
     const [isOpenInspectionWin, setIsOpenInspectionWin] = useState(false)
     const [isOpenInfoWin, setIsOpenInfoWin] = useState(false);
@@ -33,6 +36,10 @@ export const Footer = () => {
 
     const handleOpenMail = () => {
         window.open(`mailto:avtopodboris@mail.ru`)
+    }
+
+    const handleOpenPolitice = () => {
+        navigation(`/personaldata`)
     }
 
     return (
@@ -66,7 +73,7 @@ export const Footer = () => {
                 <div className={styles.info_container}>
                     <h1>О компании</h1>
                     <button onClick={selectModelInfoWindow}>Контактная информация</button>
-                    <button>Согласие на обработку персональных данных</button>
+                    <button onClick={handleOpenPolitice}>Политика конфиденциальности</button>
                 </div>
                 <div className={styles.info_container}>
                     <h1>Контакты</h1>
