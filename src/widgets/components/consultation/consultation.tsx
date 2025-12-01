@@ -10,7 +10,7 @@ interface FormData {
 
 export const Consultation = () => {
     const [isLoading, setIsLoading] = useState(false)
-    const [statusMessage, setStatusMessage] = useState('')
+    // const [statusMessage, setStatusMessage] = useState('')
     const [formData, setFormData] = useState<FormData>({
         type: '',
         name: '',
@@ -59,13 +59,13 @@ export const Consultation = () => {
         e.preventDefault();
     
             // Проверка наличия токена
-        if (!BOT_TOKEN || !CHAT_ID) {
-            setStatusMessage('❌ Ошибка конфигурации. Пожалуйста, свяжитесь с администратором.');
-            return;
-        }
+        // if (!BOT_TOKEN || !CHAT_ID) {
+        //     setStatusMessage('❌ Ошибка конфигурации. Пожалуйста, свяжитесь с администратором.');
+        //     return;
+        // }
             
         setIsLoading(true);
-        setStatusMessage('');
+        // setStatusMessage('');
     
         const type = 'Консультация'
     
@@ -73,14 +73,14 @@ export const Consultation = () => {
             const success = await sendToTelegram(formData);
             
             if (success) {
-                setStatusMessage('✅ Сообщение отправлено в Telegram!');
+                //setStatusMessage('✅ Сообщение отправлено в Telegram!');
                 setFormData({ name: '', phone: '', type: type});
             } else {
-                setStatusMessage('❌ Ошибка отправки. Попробуйте позже.');
+                //setStatusMessage('❌ Ошибка отправки. Попробуйте позже.');
             }
 
         } catch (error) {
-            setStatusMessage('❌ Произошла ошибка при отправке');
+            //setStatusMessage('❌ Произошла ошибка при отправке');
         } finally {
             setIsLoading(false);
         }

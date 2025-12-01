@@ -22,6 +22,9 @@ export const FormBlock = () => {
     const [radioSelect, setRadioSelect] = useState(0);
     const [statusMessage, setStatusMessage] = useState('');
     const [configStatus, setConfigStatus] = useState<{ isValid: boolean; errors: string[] } | null>(null);
+    
+    console.log(statusMessage)
+    console.log(configStatus)
 
     const [formData, setFormData] = useState<FormData>({
         type: '',

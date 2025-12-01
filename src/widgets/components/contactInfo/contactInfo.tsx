@@ -51,6 +51,7 @@ export const ContactInfo = () => {
     ];
 
     const handleClick = (link?: string, type?: string) => {
+        console.log(type)
         if (link) {
             window.open(link, '_blank');
         }

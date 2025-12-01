@@ -10,6 +10,7 @@ interface FormData {
 export const FormBlock2 = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [statusMessage, setStatusMessage] = useState('')
+    console.log(statusMessage)
     const [formData, setFormData] = useState<FormData>({
         phone: '',
         type: '',
