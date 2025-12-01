@@ -1,0 +1,229 @@
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+
+    h1 {
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 130%;
+        margin: 0 0 20px 0;
+        text-align: center;
+        color: #FFFFFF;
+    }
+
+    h2 {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 150%;
+        margin: 0 0 30px 0;
+        color: #D5D7DA;
+    }
+
+    h3 {
+        font-size: 24px;
+        font-weight: 600;
+        margin: 30px 0 15px 0;
+        color: #FFFFFF;
+    }
+
+    ul {
+        margin: 0 0 25px 0;
+        padding-left: 20px;
+
+        li {
+            font-size: 16px;
+            line-height: 160%;
+            margin-bottom: 8px;
+            color: #D5D7DA;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    h4 {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 150%;
+        margin: 30px 0 0 0;
+        color: #FFFFFF;
+        text-align: center;
+    }
+}
+
+// Большие экраны (1441px и выше)
+@media (min-width: 1441px) {
+    .container {
+        max-width: 900px;
+        padding: 30px;
+
+        h1 {
+            font-size: 36px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        h3 {
+            font-size: 28px;
+        }
+
+        ul li {
+            font-size: 18px;
+        }
+
+        h4 {
+            font-size: 20px;
+        }
+    }
+}
+
+// Десктоп (1025px - 1440px)
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .container {
+        max-width: 850px;
+        padding: 25px;
+    }
+}
+
+// Планшеты (769px - 1024px)
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        max-width: 750px;
+        padding: 20px;
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+
+        h2 {
+            font-size: 17px;
+            margin-bottom: 25px;
+        }
+
+        h3 {
+            font-size: 22px;
+            margin: 25px 0 12px 0;
+        }
+
+        ul {
+            margin-bottom: 22px;
+
+            li {
+                font-size: 15px;
+            }
+        }
+
+        h4 {
+            font-size: 17px;
+            margin: 25px 0 0 0;
+        }
+    }
+}
+
+// Мобильные устройства (до 768px)
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+
+        h1 {
+            font-size: 24px;
+            line-height: 130%;
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 16px;
+            line-height: 140%;
+            margin-bottom: 22px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin: 22px 0 12px 0;
+        }
+
+        ul {
+            margin-bottom: 20px;
+            padding-left: 16px;
+
+            li {
+                font-size: 14px;
+                line-height: 150%;
+                margin-bottom: 6px;
+            }
+        }
+
+        h4 {
+            font-size: 16px;
+            line-height: 140%;
+            margin: 22px 0 0 0;
+        }
+    }
+}
+
+// Очень маленькие экраны (до 480px)
+@media (max-width: 480px) {
+    .container {
+        padding: 12px;
+
+        h1 {
+            font-size: 20px;
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            font-size: 14px;
+            line-height: 140%;
+            margin-bottom: 18px;
+        }
+
+        h3 {
+            font-size: 18px;
+            margin: 20px 0 10px 0;
+        }
+
+        ul {
+            margin-bottom: 18px;
+            padding-left: 14px;
+
+            li {
+                font-size: 13px;
+                line-height: 140%;
+                margin-bottom: 5px;
+            }
+        }
+
+        h4 {
+            font-size: 14px;
+            line-height: 140%;
+            margin: 20px 0 0 0;
+        }
+    }
+}
+
+// Ландшафтная ориентация для мобильных
+@media (max-width: 768px) and (orientation: landscape) {
+    .container {
+        padding: 10px 15px;
+        
+        h1 {
+            font-size: 20px;
+        }
+        
+        h2 {
+            font-size: 14px;
+        }
+        
+        h3 {
+            font-size: 18px;
+        }
+    }
+}

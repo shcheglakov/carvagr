@@ -15,6 +15,7 @@ export const Main = () => {
   const whatCheckedRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const aboutUsRef = useRef<HTMLDivElement>(null);
+  const whyWeRef = useRef<HTMLDivElement>(null);
   //const formClock2Ref = useRef<HTMLDivElement>(null);
 
   const scrollToSection = (ref: React.RefObject<HTMLElement | null>) => {
@@ -32,12 +33,13 @@ export const Main = () => {
         scrollToWhatChecked={() => scrollToSection(whatCheckedRef)}
         scrollToServices={() => scrollToSection(servicesRef)}
         scrollToAboutUs={() => scrollToSection(aboutUsRef)}
+        scrollToWhyWe={() => scrollToSection(whyWeRef)}
       />
       <main className={styles.container}>
         <FormBlock />
         <WhatChecked ref={whatCheckedRef}/>
         <Services ref={servicesRef}/>
-        <WhyWe />
+        <WhyWe ref={whyWeRef}/>
         <AboutUs ref={aboutUsRef}/>
         <FormBlock2 />
       </main>

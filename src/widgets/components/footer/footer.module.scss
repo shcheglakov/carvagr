@@ -28,7 +28,7 @@
                 font-weight: 600;
             }
 
-            >a {
+            >button {
                 all: unset;
                 cursor: pointer;
                 font-size: 14px;
@@ -64,7 +64,7 @@
                     margin-bottom: 12px;
                 }
 
-                >a {
+                >button {
                     font-size: 15px;
                     padding: 6px 0;
                 }
@@ -93,7 +93,7 @@
                     margin-bottom: 10px;
                 }
 
-                >a {
+                >button {
                     font-size: 16px;
                     padding: 5px 0;
                 }
@@ -115,7 +115,7 @@
                     font-size: 24px;
                 }
 
-                >a {
+                >button {
                     font-size: 17px;
                 }
             }
@@ -140,7 +140,7 @@
                     margin-bottom: 6px;
                 }
 
-                >a {
+                >button {
                     font-size: 13px;
                     padding: 3px 0;
                 }
@@ -166,7 +166,7 @@
                     margin-bottom: 4px;
                 }
 
-                >a {
+                >button {
                     font-size: 12px;
                     padding: 2px 0;
                 }
@@ -195,7 +195,7 @@
     .overflow {
         .container {
             .info_container {
-                >a {
+                >button {
                     transition: none;
                 }
             }
@@ -210,7 +210,7 @@
         
         .container {
             .info_container {
-                >a {
+                >button {
                     color: #cccccc;
                     
                     &:hover {
@@ -250,7 +250,7 @@
     .overflow {
         .container {
             .info_container {
-                >a {
+                >button {
                     &:hover {
                         transform: translateX(5px);
                     }
@@ -265,7 +265,7 @@
     .overflow {
         .container {
             .info_container {
-                >a {
+                >button {
                     padding: 8px 0;
                     margin: -4px 0;
                 }

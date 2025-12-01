@@ -3,20 +3,114 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #FFFFFF;
 
     .buttons_container {
         border: 2px solid rgba(213, 215, 218, 0.1);
         border-radius: 16px;
-        width: 440px;
-
+        width: 100%;
+        max-width: 440px;
         display: flex;
         justify-content: space-between;
+        padding: 4px;
+        margin-bottom: 40px;
+        background-color: #151515;
 
         >button {
-            width: 40%;
+            width: 48%;
             border-radius: 14px;
             text-align: center;
             font-size: 16px;
+            font-weight: 500;
+            padding: 12px 0;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+    }
+}
+
+// Большие экраны (1441px и выше)
+@media (min-width: 1441px) {
+    .container {
+        padding: 30px 40px;
+    }
+}
+
+// Десктоп (1025px - 1440px)
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .container {
+        padding: 25px 32px;
+    }
+}
+
+// Планшеты (769px - 1024px)
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 20px 24px;
+        
+        .buttons_container {
+            max-width: 400px;
+            margin-bottom: 35px;
+            
+            >button {
+                font-size: 15px;
+                padding: 10px 0;
+            }
+        }
+    }
+}
+
+// Мобильные устройства (до 768px)
+@media (max-width: 768px) {
+    .container {
+        padding: 15px 16px;
+        
+        .buttons_container {
+            max-width: 350px;
+            border-radius: 14px;
+            margin-bottom: 30px;
+            
+            >button {
+                font-size: 14px;
+                padding: 10px 0;
+                border-radius: 12px;
+            }
+        }
+    }
+}
+
+// Очень маленькие экраны (до 480px)
+@media (max-width: 480px) {
+    .container {
+        padding: 10px 12px;
+        
+        .buttons_container {
+            max-width: 300px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            
+            >button {
+                font-size: 13px;
+                padding: 8px 0;
+                border-radius: 10px;
+            }
+        }
+    }
+}
+
+// Ландшафтная ориентация для мобильных
+@media (max-width: 768px) and (orientation: landscape) {
+    .container {
+        padding: 10px 16px;
+        
+        .buttons_container {
+            max-width: 280px;
+            margin-bottom: 20px;
         }
     }
 }

@@ -8,9 +8,10 @@ interface HeaderProps {
     scrollToWhatChecked: () => void;
     scrollToServices: () => void;
     scrollToAboutUs: () => void;
+    scrollToWhyWe: () => void;
 }
 
-export const Header = ({scrollToWhatChecked, scrollToServices, scrollToAboutUs} : HeaderProps) => {
+export const Header = ({scrollToWhatChecked, scrollToServices, scrollToAboutUs, scrollToWhyWe} : HeaderProps) => {
     const [isActiveModel, setIsActiveModel] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -24,7 +25,7 @@ export const Header = ({scrollToWhatChecked, scrollToServices, scrollToAboutUs} 
 
     const handleNavClick = (scrollFunction: () => void) => {
         scrollFunction();
-        setIsMobileMenuOpen(false); // Закрываем меню после клика
+        setIsMobileMenuOpen(false);
     }
 
     return (
@@ -49,6 +50,7 @@ export const Header = ({scrollToWhatChecked, scrollToServices, scrollToAboutUs} 
                     <div className={`${styles.header_nav_container} ${isMobileMenuOpen ? styles.nav_open : ''}`}>
                         <li onClick={() => handleNavClick(scrollToWhatChecked)}>Об осмотре</li>
                         <li onClick={() => handleNavClick(scrollToServices)}>Услуги</li>
+                        <li onClick={() => handleNavClick(scrollToWhyWe)}>Почему мы?</li>
                         <li onClick={() => handleNavClick(scrollToAboutUs)}>Отзывы</li>
                     </div>
 
@@ -56,7 +58,6 @@ export const Header = ({scrollToWhatChecked, scrollToServices, scrollToAboutUs} 
                         <button onClick={selectModelWindow}>Проконсультироваться</button>
                     </div>
 
-                    {/* Оверлей для мобильного меню */}
                     {isMobileMenuOpen && (
                         <div 
                             className={styles.mobile_overlay}

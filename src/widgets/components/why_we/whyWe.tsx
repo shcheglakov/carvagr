@@ -1,3 +1,4 @@
+import { forwardRef } from "react"
 import { AuctionIcon } from "../../ui/icons/auction"
 import { AutoIcon } from "../../ui/icons/auto"
 import { GoodIcon } from "../../ui/icons/good"
@@ -6,7 +7,12 @@ import { ReportIcon } from "../../ui/icons/report"
 import { TimeIcon } from "../../ui/icons/time"
 import styles from "./whyWe.module.scss"
 
-export const WhyWe = () => {
+interface WhyWeProps {
+
+}
+
+export const WhyWe = forwardRef<HTMLDivElement, WhyWeProps>((props, ref) => {
+    console.log(props)
     const items = [
         {
             id: "1",
@@ -47,7 +53,7 @@ export const WhyWe = () => {
     ]
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} ref={ref}>
             <h1>Для чего нужны наши услуги</h1>
             <div className={styles.items_container}>
                 {items.map((item) => (
@@ -64,4 +70,4 @@ export const WhyWe = () => {
             </div>
         </div>
     )
-}
+})
