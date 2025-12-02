@@ -1,12 +1,12 @@
 import styles from "./formBlock.module.scss"
-import Bmw from "../../../../public/cars_animation/bmw.png"
-import Tesla from "../../../../public/cars_animation/tesla.png"
-import Cx5 from "../../../../public/cars_animation/cx5.png"
-import Elantra from "../../../../public/cars_animation/elantra.png"
-import Li7 from "../../../../public/cars_animation/li7.png"
-import Range from "../../../../public/cars_animation/range.png"
-import Civic from "../../../../public/cars_animation/civic.png"
-import Mers from "../../../../public/cars_animation/mers.png"
+import Bmw from "../../../assets/cars_images/bmw.png"
+import Tesla from "../../../assets/cars_images/tesla.png"
+import Cx5 from "../../../assets/cars_images/cx5.png"
+import Elantra from "../../../assets/cars_images/elantra.png"
+import Li7 from "../../../assets/cars_images/li7.png"
+import Range from "../../../assets/cars_images/brown_range.png"
+import Civic from "../../../assets/cars_images/civic.png"
+import Mers from "../../../assets/cars_images/mers.png"
 
 import React, { useEffect, useState } from "react"
 import { checkEnvConfig, envConfig } from "../../../config/env"
@@ -22,6 +22,7 @@ export const FormBlock = () => {
     const [radioSelect, setRadioSelect] = useState(0);
     const [statusMessage, setStatusMessage] = useState('');
     const [configStatus, setConfigStatus] = useState<{ isValid: boolean; errors: string[] } | null>(null);
+    const [isMobile, setIsMobile] = useState(false)
     
     console.log(statusMessage)
     console.log(configStatus)
@@ -40,11 +41,21 @@ export const FormBlock = () => {
     useEffect(() => {
         const status = checkEnvConfig();
         setConfigStatus(status);
-        
+
         // В режиме разработки показываем статус конфигурации
         if (import.meta.env.DEV && !status.isValid) {
             console.warn('Конфигурация не настроена:', status.errors);
         }
+
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768); // Обычно 768px - breakpoint для мобильных
+        };
+
+        checkMobile();
+
+        window.addEventListener('resize', checkMobile);
+
+        return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -125,7 +136,7 @@ export const FormBlock = () => {
             <h2>Мы подберем для вас оптимальное предложение на рынке<br/>с гарантией технической и юридической чистоты</h2>
             
             <div className={styles.formblock_form_container}>
-                {/* {isMobile ? null :  */}
+                {isMobile ? null : 
                     <div className={styles.cars_animation_container_seamless}>
                         <div className={styles.carouselSeamless}>
                             {[Bmw, Tesla, Cx5, Elantra, Li7, Range, Civic, Mers].map((car, index) => (
@@ -150,7 +161,7 @@ export const FormBlock = () => {
                             ))}
                         </div>
                     </div>
-                {/* } */}
+                }
 
                 <h1>Оставь заявку, чтобы сохранить<br/>свою выгоду!</h1>
                 <div className={styles.formblock_form_container__radio_container}>

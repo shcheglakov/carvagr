@@ -1,15 +1,15 @@
 import styles from "./contactInfo.module.scss"
-import { PhoneIcon, MailIcon, MapPinIcon, UserIcon, DocumentIcon, BadgeIcon } from "./icons.tsx"
+import { PhoneIcon, MailIcon, MapPinIcon, DocumentIcon, BadgeIcon } from "./icons.tsx"
 
 export const ContactInfo = () => {
     const contactItems = [
-        {
-            id: 1,
-            icon: <UserIcon />,
-            title: "ИП",
-            value: "Айвазян Ашот Арсенович",
-            description: "Индивидуальный предприниматель"
-        },
+        // {
+        //     id: 1,
+        //     icon: <UserIcon />,
+        //     title: "ИП",
+        //     value: "Айвазян Ашот Арсенович",
+        //     description: "Индивидуальный предприниматель"
+        // },
         {
             id: 2,
             icon: <MapPinIcon />,

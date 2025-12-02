@@ -95,6 +95,7 @@ const Carousel: React.FC<CarouselProps> = ({
             <div key={offset} className={className} onClick={handleItem}>
               <div className={styles.imageContainer}>
                 <img 
+                  loading='lazy'
                   src={items[index].image} 
                   alt={`${items[index].auto} - ${items[index].avtor}`}
                   className={styles.image}
