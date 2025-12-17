@@ -134,7 +134,7 @@ export const FormBlock = () => {
     return(
         <div className={styles.formblock_container}>
             <h1>Хотите осмотреть или<br/>купить б/у автомобиль?</h1>
-            <h2>Мы подберем для вас оптимальное предложение на рынке<br/>с гарантией технической и юридической чистоты</h2>
+            <h2>Carvagr подберет оптимальное предложение на рынке<br/>с гарантией технической и юридической чистоты</h2>
             
             <div className={styles.formblock_form_container}>
                 {isMobile ? null : 
