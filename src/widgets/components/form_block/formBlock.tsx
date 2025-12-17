@@ -124,6 +124,7 @@ export const FormBlock = () => {
                 setStatusMessage('❌ Ошибка отправки. Попробуйте позже.');
             }
         } catch (error) {
+            console.log(error)
             setStatusMessage('❌ Произошла ошибка при отправке');
         } finally {
             setIsLoading(false);
