@@ -11,11 +11,7 @@ import Podves from "../../../assets/icons/podves.png"
 import { ModalWindow } from "../../ui/modal_window/modal_window"
 import { AboutChecked } from "./about_checked/aboutChecked"
 
-interface WhatCheckedProps {
-  // Убираем ref из пропсов
-}
-
-export const WhatChecked = forwardRef<HTMLDivElement, WhatCheckedProps>((props, ref) => {
+export const WhatChecked = forwardRef<HTMLDivElement>((props, ref) => {
     console.log(props)
     const [modalIsOpen, setModalIsOpen] = useState(false);
 

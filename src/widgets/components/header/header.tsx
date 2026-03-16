@@ -47,15 +47,15 @@ export const Header = ({scrollToWhatChecked, scrollToServices, scrollToAboutUs, 
                         </div>
                     </div>
 
-                    <div className={`${styles.header_nav_container} ${isMobileMenuOpen ? styles.nav_open : ''}`}>
+                    <ul className={`${styles.header_nav_container} ${isMobileMenuOpen ? styles.nav_open : ''}`}>
                         <li onClick={() => handleNavClick(scrollToWhatChecked)}>Об осмотре</li>
                         <li onClick={() => handleNavClick(scrollToServices)}>Услуги</li>
                         <li onClick={() => handleNavClick(scrollToWhyWe)}>Почему мы?</li>
                         <li onClick={() => handleNavClick(scrollToAboutUs)}>Отзывы</li>
-                    </div>
+                    </ul>
 
                     <div className={styles.header_cons_button}>
-                        <button onClick={selectModelWindow}>Проконсультироваться</button>
+                        <p>8 (926) 333-81-12</p>
                     </div>
 
                     {isMobileMenuOpen && (

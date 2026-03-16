@@ -68,7 +68,7 @@
                 letter-spacing: -2%;
                 text-align: center;
                 border-radius: 12px;
-                padding: 10px 12px;
+                padding: 6px 12px;
                 background: none;
                 border: none;
                 color: white;
@@ -113,8 +113,18 @@
                     }
                 }
             }
+        }
 
+        .form_submit_button {
+            >a {
+                font-size: 14px;
+                color: white;
+                text-decoration: none;
+                line-height: 1;
+            }
+            width: 100%;
             .formblock_form__form_input_container_4 {
+                width: 100%;
                 background-color: white;
                 text-align: center;
                 color: black;
@@ -176,11 +186,12 @@
 // Мобильные устройства (до 768px)
 @media (max-width: 768px) {
     .formblock_container {
+        justify-content: flex-start;
         min-height: calc(100vh - 60px);
         padding: 16px;
 
         >h1 {
-            font-size: 28px;
+            font-size: 34px;
             letter-spacing: -1%;
         }
 
@@ -208,7 +219,7 @@
                 
                 >button {
                     font-size: 12px;
-                    padding: 8px 10px;
+                    padding: 6px 10px;
                 }
             }
 
@@ -270,7 +281,7 @@
             .formblock_form_container__radio_container {
                 >button {
                     font-size: 14px;
-                    padding: 12px 14px;
+                    padding: 6px 14px;
                 }
             }
         }
@@ -307,7 +318,7 @@
                 
                 >button {
                     font-size: 14px;
-                    padding: 8px 16px;
+                    padding: 6px 16px;
                     border-radius: 14px;
                 }
             }
@@ -392,7 +403,7 @@
             .formblock_form_container__radio_container {
                 >button {
                     font-size: 16px;
-                    padding: 12px 20px;
+                    padding: 6px 20px;
                 }
             }
 
@@ -420,11 +431,12 @@
 // Очень маленькие экраны (до 480px)
 @media (max-width: 480px) {
     .formblock_container {
+        justify-content: flex-start;
         padding: 12px;
         min-height: calc(100vh - 50px);
 
         >h1 {
-            font-size: 24px;
+            font-size: 26px;
         }
 
         >h2 {
@@ -455,7 +467,8 @@
             }
 
             .cars_animation_container_seamless {
-                top: 60px;
+                top: unset;
+                bottom: 0px;
             }
         }
     }

@@ -26,6 +26,7 @@ export const FormBlock = () => {
     
     console.log(statusMessage)
     console.log(configStatus)
+    console.log(isMobile)
 
     const [formData, setFormData] = useState<FormData>({
         type: '',
@@ -131,16 +132,18 @@ export const FormBlock = () => {
         }
     }
 
+    const carImages = [Bmw, Tesla, Cx5, Elantra, Li7, Range, Civic, Mers];
+
     return(
         <div className={styles.formblock_container}>
             <h1>Хотите осмотреть или<br/>купить б/у автомобиль?</h1>
             <h2>Carvagr подберет оптимальное предложение на рынке<br/>с гарантией технической и юридической чистоты</h2>
             
             <div className={styles.formblock_form_container}>
-                {isMobile ? null : 
+                {/* {isMobile ? null : 
                     <div className={styles.cars_animation_container_seamless}>
                         <div className={styles.carouselSeamless}>
-                            {[Bmw, Tesla, Cx5, Elantra, Li7, Range, Civic, Mers].map((car, index) => (
+                            {carImages.map((car, index) => (
                                 <React.Fragment key={index}>
                                     <img 
                                         src={car} 
@@ -150,7 +153,7 @@ export const FormBlock = () => {
                                     />
                                 </React.Fragment>
                             ))}
-                            {[Bmw, Tesla, Cx5, Elantra, Li7, Range, Civic, Mers].map((car, index) => (
+                            {carImages.map((car, index) => (
                                 <React.Fragment key={`dup-${index}`}>
                                     <img 
                                         src={car} 
@@ -162,7 +165,32 @@ export const FormBlock = () => {
                             ))}
                         </div>
                     </div>
-                }
+                } */}
+
+                <div className={styles.cars_animation_container_seamless}>
+                        <div className={styles.carouselSeamless}>
+                            {carImages.map((car, index) => (
+                                <React.Fragment key={index}>
+                                    <img 
+                                        src={car} 
+                                        alt={`Car ${index + 1}`} 
+                                        className={styles.carImageSeamless} 
+                                        loading="lazy"
+                                    />
+                                </React.Fragment>
+                            ))}
+                            {carImages.map((car, index) => (
+                                <React.Fragment key={`dup-${index}`}>
+                                    <img 
+                                        src={car} 
+                                        alt={`Car ${index + 1}`} 
+                                        className={styles.carImageSeamless} 
+                                        loading="lazy"
+                                    />
+                                </React.Fragment>
+                            ))}
+                        </div>
+                    </div>
 
                 <h1>Оставь заявку, чтобы сохранить<br/>свою выгоду!</h1>
                 <div className={styles.formblock_form_container__radio_container}>
@@ -185,7 +213,7 @@ export const FormBlock = () => {
                         Подбор
                     </button>
                 </div>
-                <form onSubmit={handleSubmit} className={styles.formblock_form__form}>
+                <form id="application_form" onSubmit={handleSubmit} className={styles.formblock_form__form}>
                     <div className={`${styles.formblock_form__form_input_container} ${styles.formblock_form__form_input_container_1}`}>
                         <p>Марка и модель</p>
                         <input 
@@ -223,14 +251,18 @@ export const FormBlock = () => {
                             pattern="^\+?[0-9\s\-\(\)]+$"
                         />
                     </div>
+                </form>
+                <div className={styles.form_submit_button}>
+                    <a href="/#/personaldata">Нажимая на кнопку вы даете согласие на обработку персональный данных</a>
                     <button 
-                        type="submit" 
+                        type="submit"
+                        form="application_form"
                         className={styles.formblock_form__form_input_container_4}
                         disabled={isLoading}
                     >
                         {isLoading ? 'Отправка...' : "Проконсультироваться"}
                     </button>
-                </form>
+                </div>
             </div>
         </div>
     )
